@@ -249,7 +249,6 @@
       currentIndex = (currentIndex + 1) % gallery.length;
     }
 
-    // Inicializar primera foto y cambiar cada 4.5 segundos
     updateSlide();
     setInterval(updateSlide, 4500);
 
@@ -275,6 +274,9 @@
       }
     }
 
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
     // Corazones flotantes de fondo
     function createHearts() {
       const heartSymbols = ['❤️', '💖', '✨', '💕', '💗'];
@@ -290,8 +292,6 @@
       }
     }
 
-    setInterval(updateCounter, 1000);
-    updateCounter();
     createHearts();
   </script>
 </body>
