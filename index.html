@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pensando en ti | Nuestro Tiempo Juntos ❤️</title>
+  <title>Pensando en ti | Nuestro Contador</title>
   
-  <!-- Tipografías de lujo desde Google Fonts -->
+  <!-- Tipografías elegantes de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -20,7 +19,7 @@
 
     body {
       min-height: 100vh;
-      background: radial-gradient(ellipse at bottom, #1e0529 0%, #0c0214 60%, #05010a 100%);
+      background: radial-gradient(circle at center, #240a35 0%, #0d0317 70%, #05010a 100%);
       font-family: 'Montserrat', sans-serif;
       display: flex;
       justify-content: center;
@@ -31,41 +30,13 @@
       padding: 30px 15px;
     }
 
-    /* Ambient Glowing Orbs */
-    .glow-orb-1 {
+    /* Destellos y estrellas flotantes */
+    .star-particle {
       position: absolute;
-      top: -10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.06) 55%, transparent 70%);
-      border-radius: 50%;
+      bottom: -20px;
+      color: rgba(255, 182, 217, 0.6);
       pointer-events: none;
-      z-index: 0;
-    }
-
-    .glow-orb-2 {
-      position: absolute;
-      bottom: -15%;
-      left: 20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(244,114,182,0.12) 0%, rgba(147,51,234,0.04) 60%, transparent 75%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Floating Particles & Hearts */
-    .heart-particle {
-      position: absolute;
-      bottom: -40px;
-      color: rgba(244, 114, 182, 0.6);
-      pointer-events: none;
-      animation: floatUp 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      z-index: 1;
-      filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.6));
+      animation: floatUp 9s linear infinite;
     }
 
     @keyframes floatUp {
@@ -73,274 +44,184 @@
         transform: translateY(0) scale(0.6) rotate(0deg);
         opacity: 0;
       }
-      15% {
-        opacity: 0.8;
-      }
-      85% {
-        opacity: 0.8;
-      }
+      20% { opacity: 0.9; }
       100% {
-        transform: translateY(-115vh) scale(1.3) rotate(360deg);
+        transform: translateY(-110vh) scale(1.4) rotate(360deg);
         opacity: 0;
       }
     }
 
-    /* Main Container with Glassmorphism */
+    /* Tarjeta principal estilo Cristal Neón */
     .container {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(20, 10, 35, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 105, 180, 0.25);
       padding: 45px 35px;
       border-radius: 32px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(236, 72, 153, 0.18);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 42, 117, 0.25);
       text-align: center;
       max-width: 750px;
       width: 100%;
       z-index: 10;
-      animation: cardAppear 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
+      animation: fadeIn 1.8s ease;
     }
 
-    @keyframes cardAppear {
-      from { opacity: 0; transform: translateY(30px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Exclusive Header Badge */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 18px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
-      border: 1px solid rgba(244, 114, 182, 0.3);
-      color: #f472b6;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.15);
-    }
-
-    /* Photo Frame Component */
-    .photo-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 380px;
-      height: 380px;
-      margin: 0 auto 28px auto;
+    /* Marco de Foto GRANDE y Resaltante */
+    .photo-container {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto 25px auto;
       border-radius: 28px;
       padding: 6px;
-      background: linear-gradient(135deg, #ec4899, #a855f7, #fb7185);
-      box-shadow: 0 15px 35px rgba(236, 72, 153, 0.35), 0 0 25px rgba(168, 85, 247, 0.25);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .photo-wrapper:hover {
-      transform: scale(1.02);
-    }
-
-    .photo-frame {
-      width: 100%;
-      height: 100%;
-      border-radius: 23px;
-      overflow: hidden;
+      background: linear-gradient(135deg, #ff2a75, #9b51e0, #ff6097);
+      box-shadow: 0 0 35px rgba(255, 42, 117, 0.7), 0 0 15px rgba(155, 81, 224, 0.5);
       position: relative;
-      background: #120524;
+      overflow: hidden;
     }
 
-    .photo-frame img {
+    .photo-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      border-radius: 22px;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease;
     }
 
-    .photo-frame img.fade-out {
-      opacity: 0;
-      transform: scale(1.05);
-    }
-
-    /* Elegant Quotes Section */
-    .caption-box {
-      min-height: 90px;
+    /* Frases dinámicas exclusivas */
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #ffe0f0;
+      min-height: 70px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+      text-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+      line-height: 1.4;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 25px;
-      padding: 0 15px;
+      transition: opacity 0.6s ease;
     }
 
-    .photo-caption {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #fbcfe8;
-      text-shadow: 0 2px 12px rgba(236, 72, 153, 0.5);
-      line-height: 1.5;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    /* Main Title and Subtitles */
+    /* Título y subtítulo */
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
       font-weight: 700;
+      letter-spacing: 3px;
       color: #ffffff;
       margin-bottom: 8px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+      text-shadow: 0 0 20px rgba(255, 42, 117, 0.8);
+      text-transform: uppercase;
     }
 
     p.subtitle {
-      color: #c084fc;
+      color: #d1b3ff;
       font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       margin-bottom: 35px;
-      opacity: 0.9;
+      font-weight: 300;
     }
 
-    /* Timer Grid & Cards */
+    /* Rejilla del contador de Lujo */
     .counter-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .time-box {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-      border: 1px solid rgba(244, 114, 182, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 105, 180, 0.3);
       padding: 22px 10px;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .time-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ec4899, transparent);
+      box-shadow: inset 0 0 15px rgba(255, 42, 117, 0.1), 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .time-box:hover {
       transform: translateY(-5px);
-      border-color: rgba(244, 114, 182, 0.6);
-      box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
+      border-color: rgba(255, 105, 180, 0.8);
     }
 
     .number {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ffffff 30%, #f472b6 100%);
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(180deg, #ffffff 30%, #ff7bb0 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: block;
-      line-height: 1.1;
-      margin-bottom: 6px;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
     .label {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #e9d5ff;
-      opacity: 0.8;
+      color: #cbb4e6;
     }
 
-    /* Responsive Adaptation */
-    @media (max-width: 640px) {
-      .container {
-        padding: 30px 18px;
-        border-radius: 24px;
-      }
-      .photo-wrapper {
-        max-width: 280px;
-        height: 280px;
-      }
-      h1 {
-        font-size: 1.9rem;
-      }
-      .photo-caption {
-        font-size: 1.15rem;
-      }
-      .counter-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      .number {
-        font-size: 2.1rem;
-      }
-      .time-box {
-        padding: 16px 8px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Adaptación perfecta a pantallas móviles */
+    @media (max-width: 600px) {
+      .container { padding: 30px 18px; }
+      .photo-container { width: 260px; height: 260px; }
+      .photo-caption { font-size: 1.25rem; min-height: 60px; }
+      h1 { font-size: 1.6rem; }
+      .counter-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .number { font-size: 2.1rem; }
+      .time-box { padding: 16px 8px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="glow-orb-1"></div>
-  <div class="glow-orb-2"></div>
-
-  <main class="container">
-    
-    <div class="badge">
-      <i class="fa-solid fa-heart"></i>
-      <span>Nuestro Tiempo Separados</span>
+  <div class="container">
+    <!-- MARCO DE FOTO MÁS GRANDE -->
+    <div class="photo-container">
+      <img id="slideshow" src="foto1.jpeg" alt="Nuestro recuerdo">
     </div>
 
-    <!-- IMAGEN Y MARCO EXCLUSIVO -->
-    <div class="photo-wrapper">
-      <div class="photo-frame">
-        <img id="slideshow" src="foto1.jpeg" alt="Nuestro Recuerdo Especial">
-      </div>
-    </div>
+    <!-- FRASE DEDICATORIA EN FUENTE ROMÁNTICA -->
+    <div class="photo-caption" id="photo-text">Cargando amor...</div>
 
-    <!-- FRASE DEDICATORIA CON TIPOGRAFÍA SERIF ELEGANTE -->
-    <div class="caption-box">
-      <div class="photo-caption" id="photo-text">Cargando momento especial...</div>
-    </div>
+    <h1>Tiempo Separados ❤️</h1>
+    <p class="subtitle">Desde aquel último abrazo el 14 de Mayo de 2026 a las 4:30 PM</p>
 
-    <h1>Cuentas de Amor & Distancia</h1>
-    <p class="subtitle">Desde nuestro último abrazo el 14 de Mayo de 2026 a las 4:30 PM</p>
-
-    <!-- REJILLA DEL CONTADOR -->
+    <!-- CONTADOR DESTACADO -->
     <div class="counter-grid">
       <div class="time-box">
         <span class="number" id="days">0</span>
         <span class="label">Días</span>
       </div>
       <div class="time-box">
-        <span class="number" id="hours">00</span>
+        <span class="number" id="hours">0</span>
         <span class="label">Horas</span>
       </div>
       <div class="time-box">
-        <span class="number" id="minutes">00</span>
+        <span class="number" id="minutes">0</span>
         <span class="label">Minutos</span>
       </div>
       <div class="time-box">
-        <span class="number" id="seconds">00</span>
+        <span class="number" id="seconds">0</span>
         <span class="label">Segundos</span>
       </div>
     </div>
-
-  </main>
+  </div>
 
   <script>
     // -------------------------------------------------------------
-    // FOTOS (.jpeg) Y SUS FRASES EXACTAS
+    // FOTOS Y FRASES PERSONALIZADAS (.jpeg)
     // -------------------------------------------------------------
     const gallery = [
       { 
@@ -374,25 +255,21 @@
     const textElement = document.getElementById('photo-text');
 
     function updateSlide() {
-      imgElement.classList.add('fade-out');
-      textElement.style.opacity = '0';
-      textElement.style.transform = 'translateY(10px)';
+      imgElement.style.opacity = 0;
+      textElement.style.opacity = 0;
 
       setTimeout(() => {
         imgElement.src = gallery[currentIndex].url;
         textElement.innerText = gallery[currentIndex].text;
-
-        imgElement.classList.remove('fade-out');
-        textElement.style.opacity = '1';
-        textElement.style.transform = 'translateY(0)';
-      }, 450);
+        imgElement.style.opacity = 1;
+        textElement.style.opacity = 1;
+      }, 400);
 
       currentIndex = (currentIndex + 1) % gallery.length;
     }
 
-    // Inicializar primer slide y cambiar cada 5 segundos
     updateSlide();
-    setInterval(updateSlide, 5000);
+    setInterval(updateSlide, 4500);
 
     // -------------------------------------------------------------
     // CONTADOR EXACTO (14 de Mayo de 2026, 4:30 PM)
@@ -406,7 +283,7 @@
       if (diff > 0) {
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
         const seconds = Math.floor((diff / 1000) % 60);
 
         document.getElementById('days').innerText = days;
@@ -419,22 +296,22 @@
     setInterval(updateCounter, 1000);
     updateCounter();
 
-    // Corazones y destellos flotantes
-    function createHearts() {
-      const heartSymbols = ['❤️', '💖', '✨', '💕', '🌸', '✨'];
-      for (let i = 0; i < 24; i++) {
-        const heart = document.createElement('div');
-        heart.classList.add('heart-particle');
-        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 5 + 7) + 's';
-        heart.style.animationDelay = (Math.random() * 6) + 's';
-        heart.style.fontSize = (Math.random() * 0.9 + 0.8) + 'rem';
-        document.body.appendChild(heart);
+    // Partículas y destellos de fondo
+    function createStars() {
+      const symbols = ['✨', '💖', '⭐', '💕', '✦'];
+      for (let i = 0; i < 25; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star-particle');
+        star.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDuration = (Math.random() * 4 + 6) + 's';
+        star.style.animationDelay = Math.random() * 5 + 's';
+        star.style.fontSize = (Math.random() * 0.9 + 0.8) + 'rem';
+        document.body.appendChild(star);
       }
     }
 
-    createHearts();
+    createStars();
   </script>
 </body>
 </html>
